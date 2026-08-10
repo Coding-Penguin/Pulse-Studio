@@ -5,13 +5,11 @@
     "fileExplorerExpandedState": {
         "H:/Programming/Projects/CppProject": true,
         "H:/Programming/Projects/CppProject/CodePen-Studio": true,
-        "H:/Programming/Projects/CppProject/CodePen-Studio/Core": true,
-        "H:/Programming/Projects/CppProject/CodePen-Studio/Core/Source": true,
-        "H:/Programming/Projects/CppProject/CodePen-Studio/Core/Source/CodePen": true,
-        "H:/Programming/Projects/CppProject/CodePen-Studio/Core/Source/CodePen/ui": true,
-        "H:/Programming/Projects/CppProject/CodePen-Studio/Core/Source/CodePen/ui/CodeEditor": true
+        "H:/Programming/Projects/CppProject/CodePen-Studio/App": true,
+        "H:/Programming/Projects/CppProject/CodePen-Studio/App/Resources": true,
+        "H:/Programming/Projects/CppProject/CodePen-Studio/App/Resources/Images": true
     },
-    "fileExplorerScrollY": 200.0,
+    "fileExplorerScrollY": 350.0,
     "fontSize": 20,
     "openFiles": [],
     "recentFiles": [],

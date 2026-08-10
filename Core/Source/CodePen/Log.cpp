@@ -15,7 +15,7 @@ namespace CodePen {
 
 	void Log::Init()
 	{
-		spdlog::set_pattern("%^[%T] [Thread %t] %n -> %v%$");
+		spdlog::set_pattern("%^[%Y-%m-%d %H:%M:%S] [Thread %t] %n -> %v%$");
 		s_CoreLogger = spdlog::stdout_color_mt("CodePen");
 		s_CoreLogger->set_level(spdlog::level::trace);
 

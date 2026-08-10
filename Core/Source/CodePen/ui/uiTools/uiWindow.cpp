@@ -347,8 +347,9 @@ namespace CodePen {
 		EventDispatcher dispatcher(event);
 		dispatcher.Dispatch<WindowResizeEvent>([this](WindowResizeEvent& e) -> bool
 			{
-				s_MainW = (float)e.GetWidth();
-				s_MainH = (float)e.GetHeight();
+				s_MainW = e.GetWidth(); s_MainH = e.GetHeight();
+				if (s_LeftWidth > s_MainW - 200) s_LeftWidth = s_MainW - 200;
+				if (s_RightWidth > s_MainW - 200) s_RightWidth = s_MainW - 200;
 				UpdateDockLayout();
 				return false;
 			});
@@ -705,14 +706,6 @@ namespace CodePen {
 		s_MainX = x; s_MainY = y; s_MainW = w; s_MainH = h;
 		s_DockedWindows.clear();
 		s_FloatingWindows.clear();
-		UpdateDockLayout();
-	}
-
-	void uiWindow::OnWindowResize(int width, int height)
-	{
-		s_MainW = width; s_MainH = height;
-		if (s_LeftWidth > s_MainW - 200) s_LeftWidth = s_MainW - 200;
-		if (s_RightWidth > s_MainW - 200) s_RightWidth = s_MainW - 200;
 		UpdateDockLayout();
 	}
 

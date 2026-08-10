@@ -34,7 +34,7 @@ namespace CodePen {
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 		static Application* s_Instance;
-		double unsemi_transparency = 0.95f;
+		double unsemi_transparency = 1.0f;
 	};
 
 	// To be defined in CLIENT 

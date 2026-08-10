@@ -388,11 +388,11 @@ namespace CodePen {
 
 		if (ThemeManager::IsDarkTheme())
 		{
-			iconPath = "H:/Programming/Projects/CppProject/CodePen-Studio/Core/Resources/Images/CodePenStudio_White.png";
+			iconPath = "Resources/Images/CodePenStudio_White.png";
 		}
 		else
 		{
-			iconPath = "H:/Programming/Projects/CppProject/CodePen-Studio/Core/Resources/Images/CodePenStudio_Black.png";
+			iconPath = "Resources/Images/CodePenStudio_Black.png";
 		}
 
 		unsigned char* data = stbi_load(iconPath.c_str(), &width, &height, &channels, 4);

@@ -271,7 +271,6 @@ namespace CodePen {
 		dispatcher.Dispatch<WindowResizeEvent>([this](WindowResizeEvent& e)
 			{
 			int width = e.GetWidth(), height = e.GetHeight();
-			uiWindow::OnWindowResize(width, height - 145);
 
 			Application& app = Application::Get();
 			float leftW = app.GetWindow().GetWidth() * 0.2f,

@@ -26,6 +26,7 @@ namespace CodePen {
 		Markdown,
 		JSON,
 		Lua,
+		Picture,
 		Unknown
 	};
 
@@ -75,6 +76,7 @@ namespace CodePen {
 		std::unique_ptr<PhotoRenderer> m_Folder_Close_Icon;
 		std::unique_ptr<PhotoRenderer> m_Folder_Open_Icon;
 		std::unique_ptr<PhotoRenderer> m_File_Icon;
+		std::unique_ptr<PhotoRenderer> m_Picture_Icon;
 		std::unique_ptr<PhotoRenderer> m_CPP_File_Icon;
 		std::unique_ptr<PhotoRenderer> m_Header_File_Icon;
 		std::unique_ptr<PhotoRenderer> m_Python_File_Icon;

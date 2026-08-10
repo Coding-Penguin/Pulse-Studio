@@ -4,7 +4,7 @@ namespace CodePen {
 
 	static bool s_FontLoaded = false;
 	static float s_FontSize = 20.0f;
-	static std::string s_RootPath = "H:/Programming/Projects/CppProject";
+	static std::string s_RootPath = "H:/Programming/Projects/CppProject/ProtoCity";
 
 	static bool CreateFolder(const std::string& path)
 	{

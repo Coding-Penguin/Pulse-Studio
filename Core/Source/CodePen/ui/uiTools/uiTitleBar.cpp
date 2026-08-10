@@ -27,9 +27,9 @@ namespace CodePen
 	{
 		m_Logo.reset(new PhotoRenderer());
 		if (ThemeManager::IsDarkTheme())
-			m_Logo->LoadFromFile("H:/Programming/Projects/CppProject/CodePen-Studio/Core/Resources/Images/CodePenStudio_White.png");
+			m_Logo->LoadFromFile("Resources/Images/CodePenStudio_White.png");
 		else
-			m_Logo->LoadFromFile("H:/Programming/Projects/CppProject/CodePen-Studio/Core/Resources/Images/CodePenStudio_Black.png");
+			m_Logo->LoadFromFile("Resources/Images/CodePenStudio_Black.png");
 		
 		PS_INFO("Logo loaded: {0}", m_Logo->IsLoaded());
 

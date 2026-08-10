@@ -59,7 +59,6 @@ namespace CodePen {
 		bool IsDocked() const { return m_IsDocked; }
 
 		static void InitDockSystem(float x, float y, float w, float h);
-		static void OnWindowResize(int width, int height);
 		static bool OnDockEvent(Event& event);
 
 		static void AddWindowToRegion(uiWindow* window, DockRegion region);

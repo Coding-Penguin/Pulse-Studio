@@ -16,10 +16,10 @@ namespace CodePen
 
 	EditorView::EditorView()
 	{
-		FontManager::Get().LoadFont("Editor", "H:/Programming/Projects/CppProject/CodePen-Studio/Core/Resources/Fonts/CascadiaCode.ttf", m_FontSize, FontStyle::Regular);
-		FontManager::Get().LoadFont("Editor", "H:/Programming/Projects/CppProject/CodePen-Studio/Core/Resources/Fonts/CascadiaCode-Bold.ttf", m_FontSize, FontStyle::Bold);
-		FontManager::Get().LoadFont("Editor", "H:/Programming/Projects/CppProject/CodePen-Studio/Core/Resources/Fonts/CascadiaCode-Italic.ttf", m_FontSize, FontStyle::Italic);
-		FontManager::Get().LoadFont("Editor", "H:/Programming/Projects/CppProject/CodePen-Studio/Core/Resources/Fonts/CascadiaCode-BoldItalic.ttf", m_FontSize, FontStyle::BoldItalic);
+		FontManager::Get().LoadFont("Editor", "Resources/Fonts/CascadiaCode.ttf", m_FontSize, FontStyle::Regular);
+		FontManager::Get().LoadFont("Editor", "Resources/Fonts/CascadiaCode-Bold.ttf", m_FontSize, FontStyle::Bold);
+		FontManager::Get().LoadFont("Editor", "Resources/Fonts/CascadiaCode-Italic.ttf", m_FontSize, FontStyle::Italic);
+		FontManager::Get().LoadFont("Editor", "Resources/Fonts/CascadiaCode-BoldItalic.ttf", m_FontSize, FontStyle::BoldItalic);
 
 		m_RegularFont = FontManager::Get().GetFont("Editor", FontStyle::Regular);
 		m_BoldFont = FontManager::Get().GetFont("Editor", FontStyle::Bold);
@@ -243,8 +243,9 @@ namespace CodePen
 			float numWidth = m_RegularFont->GetTextWidth(num);
 			float numX = lineNumberX + (m_LineNumberWidth - 10 - numWidth);
 			float color[3] = { 0.5, 0.5, 0.6 };
+			float alpha = 0.7f;
 
-			m_RegularFont->DrawText(num, numX, y, color[0], color[1], color[2], 1.0f);
+			m_RegularFont->DrawText(num, numX, y, color[0], color[1], color[2], alpha);
 			y += m_LineHeight;
 		}
 	}

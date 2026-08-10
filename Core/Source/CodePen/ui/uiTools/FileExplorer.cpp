@@ -25,20 +25,25 @@ namespace CodePen {
 		m_Python_File_Icon.reset(new PhotoRenderer());
 		m_CS_File_Icon.reset(new PhotoRenderer());
 		m_File_Icon.reset(new PhotoRenderer());
+		m_Picture_Icon.reset(new PhotoRenderer());
 
-		m_Folder_Close_Icon->LoadFromFile("H:/Programming/Projects/CppProject/CodePen-Studio/Core/Resources/Images/Folder_Close.png");
-		m_Folder_Open_Icon->LoadFromFile("H:/Programming/Projects/CppProject/CodePen-Studio/Core/Resources/Images/Folder_Open.png");
-		m_CPP_File_Icon->LoadFromFile("H:/Programming/Projects/CppProject/CodePen-Studio/Core/Resources/Images/CPP_File.png");
+		m_Folder_Close_Icon->LoadFromFile("Resources/Images/Folder_Close.png");
+		m_Folder_Open_Icon->LoadFromFile("Resources/Images/Folder_Open.png");
+		m_CPP_File_Icon->LoadFromFile("Resources/Images/CPP_File.png");
+		m_Python_File_Icon->LoadFromFile("Resources/Images/Python_File.png");
+		m_CS_File_Icon->LoadFromFile("Resources/Images/CS_File.png");
 		if (ThemeManager::IsDarkTheme())
-			m_Header_File_Icon->LoadFromFile("H:/Programming/Projects/CppProject/CodePen-Studio/Core/Resources/Images/Header_File_White.png");
+		{
+			m_File_Icon->LoadFromFile("Resources/Images/File_White.png");
+			m_Header_File_Icon->LoadFromFile("Resources/Images/Header_File_White.png");
+			m_Picture_Icon->LoadFromFile("Resources/Images/Picture_White.png");
+		}
 		else
-			m_Header_File_Icon->LoadFromFile("H:/Programming/Projects/CppProject/CodePen-Studio/Core/Resources/Images/Header_File_Black.png");
-		m_Python_File_Icon->LoadFromFile("H:/Programming/Projects/CppProject/CodePen-Studio/Core/Resources/Images/Python_File.png");
-		m_CS_File_Icon->LoadFromFile("H:/Programming/Projects/CppProject/CodePen-Studio/Core/Resources/Images/CS_File.png");
-		if (ThemeManager::IsDarkTheme())
-			m_File_Icon->LoadFromFile("H:/Programming/Projects/CppProject/CodePen-Studio/Core/Resources/Images/File_White.png");
-		else
-			m_File_Icon->LoadFromFile("H:/Programming/Projects/CppProject/CodePen-Studio/Core/Resources/Images/File_Black.png");
+		{
+			m_File_Icon->LoadFromFile("Resources/Images/File_Black.png");
+			m_Header_File_Icon->LoadFromFile("Resources/Images/Header_File_Black.png");
+			m_Picture_Icon->LoadFromFile("Resources/Images/Picture_Black.png");
+		}
 	}
 
 	FileExplorer::~FileExplorer()
@@ -591,6 +596,10 @@ namespace CodePen {
 		{
 			m_CS_File_Icon->Draw(x + 20, y - 5, m_LineHeight * 0.7f, m_LineHeight * 0.7f);
 		}
+		else if (type == Filetype::Picture)
+		{
+			m_Picture_Icon->Draw(x + 20, y - 5, m_LineHeight * 0.7f, m_LineHeight * 0.7f);
+		}
 		else
 		{
 			m_File_Icon->Draw(x + 20, y - 5, m_LineHeight * 0.7f, m_LineHeight * 0.7f);
@@ -626,6 +635,7 @@ namespace CodePen {
 			else if (ext == "md") return Filetype::Markdown;
 			else if (ext == "json") return Filetype::JSON;
 			else if (ext == "lua") return Filetype::Lua;
+			else if (ext == "png" || ext == "jpg" || ext == "jpeg" || ext == "jfif" || ext == "pjpeg" || ext == "pjp" || ext == "gif" || ext == "bmp" || ext == "dib" || ext == "webp" || ext == "avif" || ext == "tif" || ext == "tiff" || ext == "svg" || ext == "eps" || ext == "ai" || ext == "cdr" || ext == "wmf" || ext == "emf" || ext == "raw" || ext == "psd" || ext == "ico" || ext == "icns" || ext == "heic" || ext == "tga" || ext == "pcx" || ext == "apng" || ext == "xpm") return Filetype::Picture;
 		}
 		return Filetype::Unknown;
 	}

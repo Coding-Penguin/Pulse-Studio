@@ -51,7 +51,7 @@ namespace CodePen {
 		if (!s_FontLoaded)
 		{
 			PS_CORE_INFO("Loading font...");
-			TextRenderer::Get().LoadFont("H:/Programming/Projects/CppProject/CodePen-Studio/Core/Resources/Fonts/Ubuntu-R.ttf", 20.0f);
+			TextRenderer::Get().LoadFont("Resources/Fonts/Ubuntu-R.ttf", 20.0f);
 			s_FontLoaded = true;
 			PS_CORE_INFO("Font loaded successfully.");
 		}
