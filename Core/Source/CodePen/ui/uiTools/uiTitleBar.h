@@ -43,6 +43,8 @@ namespace CodePen
 		bool m_DraggingMainWindow = false;
 		float m_DragStartX = 0.0f, m_DragStartY = 0.0f;
 		int m_WindowStartX = 0, m_WindowStartY = 0;
+
+		float m_SeparateLineX = 0.0f, m_SeparateLineY = 10.0f;
 	};
 
 }

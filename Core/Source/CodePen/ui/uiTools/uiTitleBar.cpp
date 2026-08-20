@@ -33,39 +33,74 @@ namespace CodePen
 		
 		PS_INFO("Logo loaded: {0}", m_Logo->IsLoaded());
 
-		float x, y = 10;
+		float x = 0, y = 10;
 		if (ChannelManager::GetChannel() == Channel::Preview)
 		{
-			x = 50;
+			x = 60;
 		}
 		else
 		{
 			x = 10;
 		}
-		auto addTitleButton = [&](const std::string& text, float width)
-			{
-				auto btn = std::make_unique<uiButton>(text, x, y, width, 40, ButtonStyles::NoBackgroundOrLine);
-				btn->SetCallback([=]() { PS_INFO("Clicked \"{}\"", text); });
-				m_Buttons.push_back(std::move(btn));
-				x += width + 10;
-			};
 
-		addTitleButton("File", 70);
-		addTitleButton("Edit", 70);
-		addTitleButton("View", 70);
-		addTitleButton("Project", 90);
-		addTitleButton("Build", 75);
-		addTitleButton("Debug", 75);
-		addTitleButton("Tools", 75);
-		addTitleButton("Help", 70);
-		x += 30;
+		// File
+		auto Filebtn = std::make_unique<uiButton>("File", x, y, 70, 40, ButtonStyles::NoBackgroundOrLine);
+		Filebtn->SetCallback([=]() { PS_INFO("Clicked \"File\""); });
+		m_Buttons.push_back(std::move(Filebtn));
+		x += 80;
 
+		// Edit
+		auto Editbtn = std::make_unique<uiButton>("Edit", x, y, 70, 40, ButtonStyles::NoBackgroundOrLine);
+		Editbtn->SetCallback([=]() { PS_INFO("Clicked \"Edit\""); });
+		m_Buttons.push_back(std::move(Editbtn));
+		x += 80;
+
+		// View
+		auto Viewbtn = std::make_unique<uiButton>("View", x, y, 70, 40, ButtonStyles::NoBackgroundOrLine);
+		Viewbtn->SetCallback([=]() { PS_INFO("Clicked \"View\""); });
+		m_Buttons.push_back(std::move(Viewbtn));
+		x += 80;
+
+		// Project
+		auto Projectbtn = std::make_unique<uiButton>("Project", x, y, 90, 40, ButtonStyles::NoBackgroundOrLine);
+		Projectbtn->SetCallback([=]() { PS_INFO("Clicked \"Project\""); });
+		m_Buttons.push_back(std::move(Projectbtn));
+		x += 100;
+
+		// Build
+		auto Buildbtn = std::make_unique<uiButton>("Build", x, y, 75, 40, ButtonStyles::NoBackgroundOrLine);
+		Buildbtn->SetCallback([=]() { PS_INFO("Clicked \"Build\""); });
+		m_Buttons.push_back(std::move(Buildbtn));
+		x += 85;
+
+		// Debug
+		auto Debugbtn = std::make_unique<uiButton>("Debug", x, y, 75, 40, ButtonStyles::NoBackgroundOrLine);
+		Debugbtn->SetCallback([=]() { PS_INFO("Clicked \"Debug\""); });
+		m_Buttons.push_back(std::move(Debugbtn));
+		x += 85;
+
+		// Tools
+		auto Toolsbtn = std::make_unique<uiButton>("Tools", x, y, 75, 40, ButtonStyles::NoBackgroundOrLine);
+		Toolsbtn->SetCallback([=]() { PS_INFO("Clicked \"Tools\""); });
+		m_Buttons.push_back(std::move(Toolsbtn));
+		x += 85;
+
+		// Help
+		auto Helpbtn = std::make_unique<uiButton>("Help", x, y, 70, 40, ButtonStyles::NoBackgroundOrLine);
+		Helpbtn->SetCallback([=]() { PS_INFO("Clicked \"Help\""); });
+		m_Buttons.push_back(std::move(Helpbtn));
+		x += 80;
+
+		// Search
+		x += 10;
+		m_SeparateLineX = x;
+		m_SeparateLineY = y;
+		x += 20;
 		auto addSearchButton = [&](const std::string& text, float width)
 			{
 				auto btn = std::make_unique<uiButton>(text, x, y, width, 40, ButtonStyles::NoBackgroundOrLine);
 				btn->SetCallback([=]() { PS_INFO("Clicked \"Search\"."); });
 				m_Buttons.push_back(std::move(btn));
-				x += width + 10;
 			};
 		addSearchButton("Search...", 150);
 	}
@@ -81,7 +116,7 @@ namespace CodePen
 		{
 			if (m_Logo && m_Logo->IsLoaded())
 			{
-				m_Logo->Draw(10, 10, 40, 40);
+				m_Logo->Draw(5, 5, 50, 50);
 			}
 		}
 
@@ -89,6 +124,22 @@ namespace CodePen
 		{
 			btn->OnUpdate(0, 0, true);
 		}
+
+		// Draw Separate Line
+		float color = 0.0f;
+		if (ThemeManager::IsDarkTheme())
+		{
+			color = 0.9f;
+		}
+		else
+		{
+			color = 0.1f;
+		}
+		glColor4f(color, color, color, 0.8f);
+		glBegin(GL_LINES);
+		glVertex2f(m_SeparateLineX, m_SeparateLineY + 5);
+		glVertex2f(m_SeparateLineX, m_SeparateLineY + 30);
+		glEnd();
 
 		auto& app = Application::Get();
 		int width = app.GetWindow().GetWidth();

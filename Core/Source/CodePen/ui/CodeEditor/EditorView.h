@@ -84,8 +84,7 @@ namespace CodePen {
 
 		struct BracketMatch
 		{
-			int line;
-			int col;
+			int line, col;
 			bool valid = false;
 		};
 		BracketMatch m_CurrentBracket;

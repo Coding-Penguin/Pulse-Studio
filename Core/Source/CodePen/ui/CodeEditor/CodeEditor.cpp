@@ -11,6 +11,7 @@
 namespace CodePen {
 
 	EditorView* CodeEditor::m_View = nullptr;
+	bool CodeEditor::m_IsModified = false;
 
 	CodeEditor::CodeEditor()
 	{
@@ -286,6 +287,11 @@ namespace CodePen {
 			m_Cursor.SetPosition(m_Buffer.GetLineCount() - 1, m_Buffer.GetLineLength(m_Buffer.GetLineCount() - 1));
 			return;
 		}
+		if ((mods & GLFW_MOD_CONTROL) && key == GLFW_KEY_S)
+		{
+			SaveFile();
+			return;
+		}
 
 		if (key == PS_KEY_LEFT)
 		{
@@ -319,6 +325,7 @@ namespace CodePen {
 		}
 		else if (key == PS_KEY_BACKSPACE)
 		{
+			m_IsModified = true;
 			CursorPosition pos = m_Cursor.GetPosition();
 			if (m_Cursor.HasSelection())
 			{
@@ -348,6 +355,7 @@ namespace CodePen {
 		}
 		else if (key == PS_KEY_DELETE)
 		{
+			m_IsModified = true;
 			CursorPosition pos = m_Cursor.GetPosition();
 			if (pos.col < m_Buffer.GetLineLength(pos.line))
 			{
@@ -365,6 +373,7 @@ namespace CodePen {
 		}
 		else if (key == PS_KEY_ENTER)
 		{
+			m_IsModified = true;
 			m_Cursor.EndSelection();
 			CursorPosition pos = m_Cursor.GetPosition();
 			std::string currentLine = m_Buffer.GetLine(pos.line);
@@ -399,6 +408,7 @@ namespace CodePen {
 		}
 		else if (key == PS_KEY_TAB)
 		{
+			m_IsModified = true;
 			for (int i = 0; i < 4; ++i)
 				ProcessCharEvent(*new CharEvent(' '));
 		}
@@ -409,6 +419,7 @@ namespace CodePen {
 		unsigned int ch = e.GetCharCode();
 		if (ch >= 32 && ch <= 126)
 		{
+			m_IsModified = true;
 			if (m_Cursor.HasSelection()) 
 			{
 				DeleteSelection();
@@ -502,6 +513,7 @@ namespace CodePen {
 
 	void CodeEditor::Paste()
 	{
+		m_IsModified = true;
 		GLFWwindow* win = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
 		const char* clipText = glfwGetClipboardString(win);
 		PS_CORE_INFO("Paste: clipboard text = '{}'", clipText ? clipText : "(null)");
@@ -723,6 +735,32 @@ namespace CodePen {
 			startCol++;
 		}
 		m_Cursor.SetPosition(pos.line, startCol);
+	}
+
+	void CodeEditor::SaveFile()
+	{
+		if (m_Buffer.GetFilePath().empty())
+		{
+			PS_CORE_WARN("No file path set, use SaveFileAs");
+			return;
+		}
+		SaveFileAs(m_Buffer.GetFilePath());
+	}
+
+	void CodeEditor::SaveFileAs(const std::string& path)
+	{
+		std::ofstream file(path);
+		if (!file.is_open())
+		{
+			PS_CORE_ERROR("Failed to save file: {}", path);
+			return;
+		}
+		file << GetText();
+		file.close();
+
+		m_IsModified = false;
+
+		PS_CORE_INFO("Saved file: {}", path);
 	}
 
 }

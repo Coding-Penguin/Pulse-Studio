@@ -41,13 +41,14 @@ namespace CodePen {
 
 		struct WindowData
 		{
-			std::string Title;
-			unsigned int Width, Height;
-			bool VSync;
 			double unsemi_transparency;
 			void* WindowPtr;
-
 			EventCallbackFn EventCallback;
+			std::string Title;
+
+			unsigned int Width, Height;
+
+			bool VSync;
 		};
 
 		WindowData m_Data;

@@ -26,8 +26,8 @@ namespace CodePen {
 	struct ShortcutGroup
 	{
 		std::vector<ShortcutItem> items;
-		bool hasSeparatorAfter = false;
 		std::vector<uiButton*> buttons;
+		bool hasSeparatorAfter = false;
 	};
 
 	class uiShortcutBar

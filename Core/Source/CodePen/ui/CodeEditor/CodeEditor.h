@@ -43,6 +43,10 @@ namespace CodePen {
 		void SetText(const std::string& text);
 
 		static EditorView* GetView();
+
+		void SaveFile();
+		void SaveFileAs(const std::string& path);
+		static bool IsModified() { return m_IsModified; }
 	private:
 		static CodeEditor instance;
 
@@ -57,16 +61,19 @@ namespace CodePen {
 		bool m_MouseDragSelecting = false;
 		CursorPosition m_MouseDragStart;
 
-		struct UndoAction 
+		struct UndoAction
 		{
 			enum Type { Insert, Delete, InsertNewline, DeleteNewline };
-			Type type;
-			int line, col;
 			std::string data;
+			Type type;
+
+			int line, col;
 			int endLine, endCol;
 		};
 		std::stack<UndoAction> m_UndoStack;
 		std::stack<UndoAction> m_RedoStack;
+
+		static bool m_IsModified;
 
 		AutoComplete m_AutoComplete;
 		void InsertAutoCompleteText(const std::string& text);

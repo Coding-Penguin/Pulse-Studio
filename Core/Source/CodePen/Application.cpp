@@ -90,40 +90,11 @@ namespace CodePen {
 				break;
 		}
 	}
-	
-	static void SetGLFWColor()
-	{
-		switch (ThemeManager::GetCurrentTheme())
-		{
-		case Theme::Dark:
-			glClearColor(0.01f, 0.01f, 0.05f, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
-			break;
-		case Theme::Light:
-			glClearColor(0.95f, 0.95f, 1.0f, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
-			break;
-		case Theme::Cool_Breeze:
-			glClearColor(0.8f, 0.9f, 0.95f, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
-			break;
-		case Theme::Cool_Slate:
-			glClearColor(0.110f, 0.208f, 0.306f, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
-			break;
-		case Theme::Icy_Mint:
-			glClearColor(0.8f, 0.9f, 0.85f, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
-			break;
-		case Theme::Moonlight:
-			glClearColor(0.05f, 0.1f, 0.17f, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
-		}
-	}
 
 	void Application::Run()
 	{
 		PS_TRACE("CodePen Studio initialized and running.");
+		PS_INFO("CodePen Studio is running on channel: {}, theme: {}", ((ChannelManager::GetChannel() == Channel::Current) ? "Current" : "Preview"), ThemeManager::GetThemeName());
 
 		float lastTime = (float)glfwGetTime();
 		do 
@@ -132,7 +103,9 @@ namespace CodePen {
 			float deltaTime = currentTime - lastTime;
 			lastTime = currentTime;
 
-			SetGLFWColor();
+			auto [r, g, b] = ThemeManager::GetBGColor();
+			glClearColor(r, g, b, 1.0f);
+			glClear(GL_COLOR_BUFFER_BIT);
 
 			for (Layer* layer : m_LayerStack)
 			{

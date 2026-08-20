@@ -127,14 +127,14 @@ namespace CodePen {
 
 		struct DockArea
 		{
-			DockRegion region;
 			std::vector<uiWindow*> windows;
 			uiWindow* activeWindow = nullptr;
+			DockRegion region;
 			float x, y, w, h;
 			float tabHeight = 25.0f;
 
 			uiWindow* GetWindow()
-			{ 
+			{
 				if (windows.empty()) return nullptr;
 				return windows[0];
 			}

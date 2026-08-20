@@ -7,16 +7,14 @@ namespace CodePen {
 
 	struct AppSettings
 	{
-		int themeIndex = 3;
-		int channelIndex = 0;
-		int fontSize = 20;
-
 		std::vector<std::string> recentFiles;
 		std::vector<std::string> openFiles;
-
-		float fileExplorerScrollY = 0.0f;
 		std::unordered_map<std::string, bool> fileExplorerExpandedState;
 
+		int themeIndex = 3;
+		int channelIndex = 1;
+		int fontSize = 20;
+		float fileExplorerScrollY = 0.0f;
 		unsigned int WindowWidth = 1720, WindowHeight = 1000;
 	};
 

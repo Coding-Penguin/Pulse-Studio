@@ -492,7 +492,7 @@ namespace CodePen {
 
 		if (&node == m_SelectNode)
 		{
-			glColor4f(0.5f, 0.5f, 0.5f, 0.7f);
+			glColor4f(0.5f, 0.5f, 0.5f, 0.5f);
 			glBegin(GL_QUADS);
 			glVertex2f(x, y);
 			glVertex2f(x + width, y);

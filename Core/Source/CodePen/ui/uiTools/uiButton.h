@@ -1,8 +1,8 @@
 #pragma once
 #include "pspch.h"
-#include <functional>
 #include "CodePen/Events/Event.h"
 #include "CodePen/Events/MouseEvent.h"
+#include "PhotoRenderer.h"
 
 namespace CodePen {
 

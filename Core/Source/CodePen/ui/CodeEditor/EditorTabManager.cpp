@@ -177,6 +177,13 @@ namespace CodePen {
 
 		TextRenderer::Get().DrawText(m_Tabs[index].title, textX, textY, r, g, b, 1.0f);
 
+		//if (CodeEditor::IsModified())
+		//{
+		//	float dotX = x + TextRenderer::Get().GetTextWidth(m_Tabs[index].title) + 10;
+		//	float dotY = y + (h - 16) / 2;
+		//	TextRenderer::Get().DrawText("*", dotX, dotY, 1.0f, 0.7f, 0.0f, 1.0f);
+		//}
+
 		float closeX = x + w - 20;
 		float closeY = y + (h - 16) / 2;
 		glColor4f(0.7f, 0.7f, 0.7f, 1.0f);

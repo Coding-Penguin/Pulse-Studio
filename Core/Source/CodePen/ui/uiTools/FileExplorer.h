@@ -10,9 +10,11 @@ namespace CodePen {
 	{
 		std::string name;
 		std::string path;
+
+		std::vector<FileNode> children;
+
 		bool isFolder = false;
 		bool expanded = false;
-		std::vector<FileNode> children;
 	};
 
 	enum class Filetype

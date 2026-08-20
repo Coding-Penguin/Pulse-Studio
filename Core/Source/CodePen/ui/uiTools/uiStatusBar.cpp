@@ -85,30 +85,8 @@ namespace CodePen
 		int height = (int)app.GetWindow().GetHeight();
 		float y = height - m_Height;
 
-		if (ThemeManager::GetCurrentTheme() == Theme::Dark)
-		{
-			glColor4f(0.1f, 0.1f, 0.15f, 1);
-		}
-		else if (ThemeManager::GetCurrentTheme() == Theme::Light)
-		{
-			glColor4f(0.9f, 0.9f, 0.9f, 1);
-		}
-		else if (ThemeManager::GetCurrentTheme() == Theme::Cool_Breeze)
-		{
-			glColor4f(0.75f, 0.85f, 0.9f, 1);
-		}
-		else if (ThemeManager::GetCurrentTheme() == Theme::Cool_Slate)
-		{
-			glColor4f(0.150f, 0.256f, 0.355f, 1);
-		}
-		else if (ThemeManager::GetCurrentTheme() == Theme::Icy_Mint)
-		{
-			glColor4f(0.75f, 0.85f, 0.8f, 1);
-		}
-		else if (ThemeManager::GetCurrentTheme() == Theme::Moonlight)
-		{
-			glColor4f(0.1f, 0.15f, 0.23f, 1);
-		}
+		auto [r, g, b] = ThemeManager::GetBGColor();
+		glColor4f(r + 0.05f, g + 0.05f, b + 0.1f, 1);
 
 		glBegin(GL_QUADS);
 		glVertex2f(0, y);

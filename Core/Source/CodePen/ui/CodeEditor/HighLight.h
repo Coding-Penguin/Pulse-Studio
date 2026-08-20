@@ -17,8 +17,7 @@ namespace CodePen {
 
 	struct HighlightSpan
 	{
-		int start;
-		int end;
+		int start, end;
 		HighlightColor color;
 	};
 

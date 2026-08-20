@@ -26,6 +26,7 @@
 #include <format>
 #include <codecvt>
 #include <locale>
+#include <tuple>
 
 #include "CodePen/Core.h"
 #include "CodePen/Log.h"
