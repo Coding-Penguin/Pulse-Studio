@@ -1,9 +1,9 @@
 <div align = "center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./Core/Resources/Images/CodePenStudio_White.png" style = "width: 20%; height: auto;">
-  <source media="(prefers-color-scheme: light)" srcset="./Core/Resources/Images/CodePenStudio_Black.png" style = "width: 20%; height: auto;">
-  <img alt="icon" src="./Core/Resources/Images/CodePenStudio_White.png" style = "width: 20%; height: auto;">
+  <source media="(prefers-color-scheme: dark)" srcset="./App/Resources/Images/CodePenStudio_White.png" style = "width: 20%; height: auto;">
+  <source media="(prefers-color-scheme: light)" srcset="./App/Resources/Images/CodePenStudio_Black.png" style = "width: 20%; height: auto;">
+  <img alt="icon" src="./App/Resources/Images/CodePenStudio_White.png" style = "width: 20%; height: auto;">
 </picture>
 
 </div>
