@@ -51,7 +51,7 @@ namespace CodePen
 
 		DrawBackground();
 		DrawProgress();
-		DrawChannel();
+		DrawChannelandVersion();
 		DrawText();
 
 		glPopMatrix();
@@ -86,7 +86,7 @@ namespace CodePen
 		float y = height - m_Height;
 
 		auto [r, g, b] = ThemeManager::GetBGColor();
-		glColor4f(r + 0.05f, g + 0.05f, b + 0.1f, 1);
+		glColor4f(r + 0.05f, g + 0.05f, b + 0.1f, 1.0f);
 
 		glBegin(GL_QUADS);
 		glVertex2f(0, y);
@@ -96,16 +96,16 @@ namespace CodePen
 		glEnd();
 	}
 
-	void uiStatusBar::DrawChannel()
+	void uiStatusBar::DrawChannelandVersion()
 	{
 		Channel channel = ChannelManager::GetChannel();
 		if (channel == Channel::Preview)
 		{
-			m_RightText = "Preview";
+			m_RightText = s_Version + "    Preview";
 		}
 		else
 		{
-			m_RightText = "Current";
+			m_RightText = s_Version + "    Current";
 		}
 		DrawText();
 	}
@@ -130,11 +130,28 @@ namespace CodePen
 
 		float leftX = 10.0f;
 		TextRenderer::Get().DrawText(m_StatusText, leftX, textY, r, g, b, 1.0f);
+		
+		float rightTextOffset = 10.0f;
+		GLFWwindow* win = static_cast<GLFWwindow*>(app.GetWindow().GetNativeWindow());
+		if (glfwGetWindowAttrib(win, GLFW_MAXIMIZED) != GLFW_TRUE)
+		{
+			rightTextOffset = 40.0f;
 
+			float gripSize = 25.0f;
+			float startX = width - 5.0f - gripSize;
+			float startY = textY + m_Height - gripSize;
+
+			glColor4f(0.5f, 0.5f, 0.5f, 1.0f);
+			glBegin(GL_TRIANGLES);
+			glVertex2f(startX + 2.5f, textY + m_Height - 15.0f);
+			glVertex2f(width - 5, startY - 10.0f);
+			glVertex2f(width - 5, textY + m_Height - 15.0f);
+			glEnd();
+		}
 		if (!m_RightText.empty())
 		{
 			float rightTextWidth = TextRenderer::Get().GetTextWidth(m_RightText);
-			float rightX = width - rightTextWidth - 10.0f;
+			float rightX = width - rightTextWidth - rightTextOffset;
 			TextRenderer::Get().DrawText(m_RightText, rightX, textY, r, g, b, 1.0f);
 		}
 	}

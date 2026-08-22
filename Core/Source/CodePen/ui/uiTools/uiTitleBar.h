@@ -39,6 +39,7 @@ namespace CodePen
 		bool m_MinimizeHovered = false;
 		bool m_MaximizeHovered = false;
 		bool m_CloseHovered = false;
+		bool m_IsMaximized = false;
 
 		bool m_DraggingMainWindow = false;
 		float m_DragStartX = 0.0f, m_DragStartY = 0.0f;

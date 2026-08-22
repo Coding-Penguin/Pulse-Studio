@@ -146,12 +146,12 @@ namespace CodePen
 		UpdateWindowButtonsPosition(width);
 
 		GLFWwindow* win = static_cast<GLFWwindow*>(app.GetWindow().GetNativeWindow());
-		bool isMaximized = glfwGetWindowAttrib(win, GLFW_MAXIMIZED) == GLFW_TRUE;
+		m_IsMaximized = glfwGetWindowAttrib(win, GLFW_MAXIMIZED) == GLFW_TRUE;
 
 		if (ChannelManager::GetChannel() == Channel::Preview)
 		{
 			DrawMinimizeButton(m_MinimizeRect.x, m_MinimizeRect.y, m_MinimizeRect.w, m_MinimizeRect.h, m_MinimizeHovered);
-			DrawMaximizeButton(m_MaximizeRect.x, m_MaximizeRect.y, m_MaximizeRect.w, m_MaximizeRect.h, m_MaximizeHovered, isMaximized);
+			DrawMaximizeButton(m_MaximizeRect.x, m_MaximizeRect.y, m_MaximizeRect.w, m_MaximizeRect.h, m_MaximizeHovered, m_IsMaximized);
 			DrawCloseButton(m_CloseRect.x, m_CloseRect.y, m_CloseRect.w, m_CloseRect.h, m_CloseHovered);
 		}
 	}
@@ -178,6 +178,7 @@ namespace CodePen
 					int newX = m_WindowStartX + (int)(dx + 0.5f);
 					int newY = m_WindowStartY + (int)(dy + 0.5f);
 					auto* window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
+					glfwRestoreWindow(window);
 					glfwSetWindowPos(window, newX, newY);
 					return true;
 				}

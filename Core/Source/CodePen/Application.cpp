@@ -35,6 +35,7 @@ namespace CodePen {
 
 		Log::Init();
 		PS_CORE_INFO("Initilized log!");
+		PS_CORE_INFO("CodePen Studio is running on channel: {}, theme: {}, version: {}", ((ChannelManager::GetChannel() == Channel::Current) ? "Current" : "Preview"), ThemeManager::GetThemeName(), s_Version);
 
 		SettingsManager::Get().Load();
 
@@ -94,7 +95,6 @@ namespace CodePen {
 	void Application::Run()
 	{
 		PS_TRACE("CodePen Studio initialized and running.");
-		PS_INFO("CodePen Studio is running on channel: {}, theme: {}", ((ChannelManager::GetChannel() == Channel::Current) ? "Current" : "Preview"), ThemeManager::GetThemeName());
 
 		float lastTime = (float)glfwGetTime();
 		do 

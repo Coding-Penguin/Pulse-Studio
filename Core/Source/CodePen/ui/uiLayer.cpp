@@ -106,10 +106,8 @@ namespace CodePen {
 		auto* notifications = new uiWindow("Notifications");
 		m_Windows.push_back(fileExplorer);
 		m_Windows.push_back(output);
-		m_Windows.push_back(properties);
 		uiWindow::DockWindow(fileExplorer, DockRegion::Left);
 		uiWindow::DockWindow(output, DockRegion::Bottom);
-		uiWindow::DockWindow(properties, DockRegion::Right);
 		for (auto* win : m_Windows)
 		{
 			win->OnAttach();
