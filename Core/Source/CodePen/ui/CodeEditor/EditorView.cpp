@@ -187,6 +187,18 @@ namespace CodePen
 					case HighlightColor::Preprocessor:
 						font = m_BoldFont;
 						break;
+					case HighlightColor::Function:
+						font = m_ItalicFont;
+						break;
+					case HighlightColor::ClassName:
+						font = m_BoldItalicFont;
+						break;
+					case HighlightColor::Namespace:
+						font = m_BoldItalicFont;
+						break;
+					case HighlightColor::Macro:
+						font = m_BoldFont;
+						break;
 					default:
 						font = m_RegularFont;
 						break;

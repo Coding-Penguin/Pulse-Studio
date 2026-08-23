@@ -98,14 +98,6 @@ namespace CodePen {
 		int height = app.GetWindow().GetHeight();
 		if (width == 0 || height == 0) return;
 
-		glColor4f(1.0f, 1.0f, 1.0f, 0.0f);
-		glBegin(GL_QUADS);
-		glVertex2f(0, 30);
-		glVertex2f(width, 30);
-		glVertex2f(width, 30 + m_BarHeight);
-		glVertex2f(0, 30 + m_BarHeight);
-		glEnd();
-
 		float yStart = m_OffsetY + 10;
 		float yEnd = m_OffsetY + m_BarHeight - 5;
 		glColor4f(0.4f, 0.4f, 0.45f, 1.0f);

@@ -52,7 +52,7 @@ namespace CodePen {
 		float m_ButtonHeight = 25.0f;
 		float m_Padding = 5.0f;
 		float m_SeparatorMargin = 5.0f;
-		float m_OffsetY = 45.0f;
+		float m_OffsetY = 85.0f;
 
 		std::vector<float> m_GroupEndX;
 		void RebuildButtons();

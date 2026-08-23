@@ -87,7 +87,7 @@ namespace CodePen {
 		m_ShortcutBar->AddGroup(buildGroup, true);
 		m_ShortcutBar->AddGroup(bookmarkGroup, false);
 
-		uiWindow::InitDockSystem(0.0f, 110.0f, width, height - 150.0f);
+		uiWindow::InitDockSystem(0.0f, 140.0f, width, height - 180.0f);
 
 		auto* properties = new PropertiesWindow();
 		auto* fileExplorer = new FileExplorer(s_RootPath, properties);
@@ -114,7 +114,7 @@ namespace CodePen {
 		}
 
 		m_TabManager = new EditorTabManager();
-		int topOffset = 110;
+		int topOffset = 140;
 		int bottomOffset = 40;
 		float tabX = 0;
 		float tabY = topOffset;

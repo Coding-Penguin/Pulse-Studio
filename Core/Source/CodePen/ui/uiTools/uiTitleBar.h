@@ -19,7 +19,6 @@ namespace CodePen
 		void OnUpdate(float deltaTime);
 		bool OnEvent(Event& event);
 
-		void Draw();
 		void OnWindowResize(int width, int height);
 
 		void DrawMinimizeButton(float x, float y, float w, float h, bool hovered);

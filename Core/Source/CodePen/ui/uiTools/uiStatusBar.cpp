@@ -49,9 +49,8 @@ namespace CodePen
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
 
-		DrawBackground();
 		DrawProgress();
-		DrawChannelandVersion();
+		DrawChannel();
 		DrawText();
 
 		glPopMatrix();
@@ -78,34 +77,16 @@ namespace CodePen
 		m_Progress = std::clamp(progress, -1.0f, 1.0f);
 	}
 
-	void uiStatusBar::DrawBackground()
-	{
-		Application &app = Application::Get();
-		int width = (int)app.GetWindow().GetWidth();
-		int height = (int)app.GetWindow().GetHeight();
-		float y = height - m_Height;
-
-		auto [r, g, b] = ThemeManager::GetBGColor();
-		glColor4f(r + 0.05f, g + 0.05f, b + 0.1f, 1.0f);
-
-		glBegin(GL_QUADS);
-		glVertex2f(0, y);
-		glVertex2f(width, y);
-		glVertex2f(width, y + m_Height);
-		glVertex2f(0, y + m_Height);
-		glEnd();
-	}
-
-	void uiStatusBar::DrawChannelandVersion()
+	void uiStatusBar::DrawChannel()
 	{
 		Channel channel = ChannelManager::GetChannel();
 		if (channel == Channel::Preview)
 		{
-			m_RightText = s_Version + "    Preview";
+			m_RightText = "Preview";
 		}
 		else
 		{
-			m_RightText = s_Version + "    Current";
+			m_RightText = "Current";
 		}
 		DrawText();
 	}

@@ -1,6 +1,7 @@
 #include "pspch.h"
 #include "uiTitleBar.h"
 #include "PhotoRenderer.h"
+#include "TextRenderer.h"
 #include "uiButton.h"
 #include "CodePen/Application.h"
 #include "CodePen/Events/Event.h"
@@ -36,11 +37,12 @@ namespace CodePen
 		float x = 0, y = 10;
 		if (ChannelManager::GetChannel() == Channel::Preview)
 		{
-			x = 60;
+			x = 90;
+			y = 40;
 		}
 		else
 		{
-			x = 10;
+			x = y = 10;
 		}
 
 		// File
@@ -114,10 +116,36 @@ namespace CodePen
 	{
 		if (ChannelManager::GetChannel() == Channel::Preview)
 		{
+			auto& app = Application::Get();
+			float width = static_cast<float>(app.GetWindow().GetWidth());
+			auto [r, g, b] = ThemeManager::GetBGColor();
+
+			glColor4f(std::min(r + 0.03f, 1.0f), std::min(g + 0.03f, 1.0f), std::min(b + 0.05f, 1.0f), 1.0f);
+			glBegin(GL_QUADS);
+			glVertex2f(0.0f, 40.0f);
+			glVertex2f(width, 40.0f);
+			glVertex2f(width, 0.0f);
+			glVertex2f(0.0f, 0.0f);
+			glEnd();
+
 			if (m_Logo && m_Logo->IsLoaded())
 			{
-				m_Logo->Draw(5, 5, 50, 50);
+				m_Logo->Draw(0, 0, 80, 80);
 			}
+
+			float VersionX, VersionY;
+			VersionX = width / 2.0f - TextRenderer::Get().GetTextWidth(s_Version) / 2.0f;
+			VersionY = (35.0f - TextRenderer::Get().GetTextHeight()) / 2.0f;
+			float color = 0.0f;
+			if (ThemeManager::IsDarkTheme())
+			{
+				color = 1.0f;
+			}
+			else
+			{
+				color = 0.0f;
+			}
+			TextRenderer::Get().DrawText(s_Version, VersionX, VersionY, color, color, color, 1.0f);
 		}
 
 		for (auto& btn : m_Buttons) 
@@ -173,12 +201,14 @@ namespace CodePen
 			{
 				if (m_DraggingMainWindow)
 				{
-					float dx = mx - m_DragStartX;
-					float dy = my - m_DragStartY;
-					int newX = m_WindowStartX + (int)(dx + 0.5f);
-					int newY = m_WindowStartY + (int)(dy + 0.5f);
 					auto* window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
+					int windowPosX, windowPosY;
+
 					glfwRestoreWindow(window);
+					glfwGetWindowPos(window, &windowPosX, &windowPosY);
+
+					int newX = static_cast<int>(windowPosX + mx - m_DragStartX);
+					int newY = static_cast<int>(windowPosY + my - m_DragStartY);
 					glfwSetWindowPos(window, newX, newY);
 					return true;
 				}
@@ -280,20 +310,10 @@ namespace CodePen
 		return false;
 	}
 
-	void uiTitleBar::Draw()
-	{
-		if (m_Logo && m_Logo->IsLoaded())
-		{
-			m_Logo->Draw(100, 100, 200, 200);
-		}
-
-		PS_INFO("Drawed logo.");
-	}
-
 	void uiTitleBar::UpdateWindowButtonsPosition(int windowWidth)
 	{		
-		float btnWidth = 50.0f;
-		float btnHeight = 50.0f;
+		float btnWidth = 40.0f;
+		float btnHeight = 40.0f;
 		float y = 0;
 		float rightMargin = 0;
 		float startX = windowWidth - 3 * btnWidth - rightMargin;

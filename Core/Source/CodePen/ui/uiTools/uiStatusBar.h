@@ -19,10 +19,9 @@ namespace CodePen {
 
 		void SetProgress(float progress);
 	private:
-		void DrawBackground();
 		void DrawText();
 		void DrawProgress();
-		void DrawChannelandVersion();
+		void DrawChannel();
 
 		std::string m_StatusText = "Ready";
 		std::string m_RightText = "";

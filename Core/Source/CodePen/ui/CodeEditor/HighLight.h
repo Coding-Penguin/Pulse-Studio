@@ -12,7 +12,11 @@ namespace CodePen {
 		String,
 		Comment,
 		Number,
-		Preprocessor
+		Preprocessor,
+		Function,
+		ClassName,
+		Namespace,
+		Macro
 	};
 
 	struct HighlightSpan
@@ -30,6 +34,7 @@ namespace CodePen {
 		Markdown,
 		JSON,
 		Lua,
+		Rust,
 		Text
 	};
 
@@ -50,7 +55,15 @@ namespace CodePen {
 			case HighlightColor::Comment:			return glm::vec3(0.3f, 0.7f, 0.3f);
 			case HighlightColor::Number:			return glm::vec3(0.7f, 0.7f, 0.8f);
 			case HighlightColor::Preprocessor:		return glm::vec3(0.5f, 0.5f, 0.5f);
-			default:								return (ThemeManager::IsDarkTheme() ? glm::vec3(0.9f, 0.9f, 0.95f) : glm::vec3(0.1f, 0.1f, 0.15f));
+			case HighlightColor::Function:			return glm::vec3(0.7f, 0.5f, 0.2f);
+			case HighlightColor::ClassName:			return glm::vec3(0.2f, 0.5f, 0.3f);
+			case HighlightColor::Namespace:			return glm::vec3(0.5f, 0.5f, 0.3f);
+			case HighlightColor::Macro:				return glm::vec3(0.7f, 0.5f, 0.2f);
+			default:
+				if (ThemeManager::IsDarkTheme())
+					return glm::vec3(0.9f, 0.9f, 0.93f);
+				else
+					return glm::vec3(0.1f, 0.1f, 0.13f);
 			}
 		}
 	private:

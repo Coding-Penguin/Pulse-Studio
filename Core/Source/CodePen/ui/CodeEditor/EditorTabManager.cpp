@@ -169,10 +169,22 @@ namespace CodePen {
 
 		float textX = x + 8;
 		float textY = y + (h - 18) / 2;
-		float r = 0.9f, g = 0.9f, b = 0.9f;
-		if (!active)
+		float r, g, b;
+		if (ThemeManager::IsDarkTheme())
 		{
-			r = g = b = 0.7f;
+			r = g = b = 0.9f;
+			if (!active)
+			{
+				r = g = b = 0.7f;
+			}
+		}
+		else
+		{
+			r = g = b = 0.1f;
+			if (!active)
+			{
+				r = g = b = 0.3f;
+			}
 		}
 
 		TextRenderer::Get().DrawText(m_Tabs[index].title, textX, textY, r, g, b, 1.0f);
