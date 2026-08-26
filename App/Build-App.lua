@@ -10,28 +10,28 @@ project "App"
    includedirs
    {
         "Source",
-        "../Core/Source",
-        "../Core/vendor/GLFW/include",
-        "../Core/vendor/Glad/include",
-        "../Core/vendor/glm",
-        "../Core/vendor/stb_image",
-        "../Core/vendor/miniaudio",
-        "../Core/vendor/spdlog/include",
-        "../Core/vendor/json/include",
-        "../Core/vendor"
+        "../Frostnux/Source",
+        "../Frostnux/vendor/GLFW/include",
+        "../Frostnux/vendor/Glad/include",
+        "../Frostnux/vendor/glm",
+        "../Frostnux/vendor/stb_image",
+        "../Frostnux/vendor/miniaudio",
+        "../Frostnux/vendor/spdlog/include",
+        "../Frostnux/vendor/json/include",
+        "../Frostnux/vendor"
    }
 
-   links { "Core" }
+   links { "Frostnux" }
 
    targetdir ("../Binaries/" .. OutputDir)
    objdir ("../Binaries-Intermediates/" .. OutputDir)
 
    filter "system:windows"
        systemversion "latest"
-       defines { "WINDOWS", "PS_PLATFORM_WINDOWS" }
+       defines { "WINDOWS", "FX_PLATFORM_WINDOWS" }
 
    filter "system:linux"
-       defines { "LINUX", "PS_PLATFORM_LINUX" }
+       defines { "LINUX", "FX_PLATFORM_LINUX" }
 
    filter "configurations:Debug"
        defines { "DEBUG" }

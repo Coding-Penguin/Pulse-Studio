@@ -1,6 +1,6 @@
-#include <Code.h>
+#include <Frostnux.h>
 
-class ExampleLayer : public CodePen::Layer
+class ExampleLayer : public Frostnux::Layer
 {
 public:
 	ExampleLayer()
@@ -12,33 +12,33 @@ public:
 	{
 	}
 
-	bool OnEvent(CodePen::Event& event) override
+	bool OnEvent(Frostnux::Event& event) override
 	{
 		return false;
 	}
 };
 
-class SandboxApp : public CodePen::Application
+class SandboxApp : public Frostnux::Application
 {
 public:
 	SandboxApp()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new CodePen::uiLayer());
+		PushOverlay(new Frostnux::uiLayer());
 	}
 	~SandboxApp()
 	{
 	}
 };
 
-CodePen::Application* CodePen::CreateApplication()
+Frostnux::Application* Frostnux::CreateApplication()
 {
 	return new SandboxApp();
 }
 
 int main()
 {
-	CodePen::Application* app = CodePen::CreateApplication();
+	Frostnux::Application* app = Frostnux::CreateApplication();
 
 	app->Run();
 

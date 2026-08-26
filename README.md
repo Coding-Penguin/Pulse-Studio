@@ -1,18 +1,14 @@
 <div align = "center">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./App/Resources/Images/CodePenStudio_White.png" style = "width: 20%; height: auto;">
-  <source media="(prefers-color-scheme: light)" srcset="./App/Resources/Images/CodePenStudio_Black.png" style = "width: 20%; height: auto;">
-  <img alt="icon" src="./App/Resources/Images/CodePenStudio_White.png" style = "width: 20%; height: auto;">
-</picture>
+<img alt="icon" src="./App/Resources/Images/Frostnux.png" style = "width: 20%; height: auto;">
 
 </div>
 <div align = "center">
 
-# CodePen-Studio · 代码之笔
-<strong> An open-source IDE with native runtime based on C++/OpenGL. </strong>
+# Frostnux · 霜砧
+<strong> An open-source IDE with native runtime based on C++ / OpenGL. </strong>
 
-<em>Chinese name: <strong>代码之笔</strong> (official Chinese branding). The repository name remain <code>CodePen-Studio</code>.</em>
+<em>Chinese name: <strong>霜砧</strong> (official Chinese branding). The repository name remain <code>Frostnux</code>.</em>
 </div>
 <div align = "center">
 
@@ -20,8 +16,7 @@
 </div>
 <div align = "center">
 
-### Where code reaches, an echo returns
-#### With the pen of creation, light up the digital beyond
+### Forged at zero. Bladed in bits.
 </div>
 
 ## Runtime Screenshot
@@ -33,8 +28,8 @@
 <em> A screenshot of the IDE's actual running interface during <code>compilation</code> </em>
 </div>
 
-<!-- ## What CodePen-Studio Is -->
+<!-- ## What Frostnux Is -->
 
 ## License
 
-CodePen-Studio is released under the Apache License. See [`LICENSE`](./LICENSE) file for details.
+Frostnux is released under the Apache License. See [`LICENSE`](./LICENSE) file for details.
