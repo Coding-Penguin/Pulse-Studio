@@ -14,6 +14,8 @@
 
 [中文](./README-zh.md)
 [русский](./README-ru.md)
+[français](./README-fr.md)
+[español](./README-es.md)
 </div>
 <div align = "center">
 <strong> Forged at zero. Bladed in bits. </strong>

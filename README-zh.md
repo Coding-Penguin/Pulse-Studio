@@ -15,12 +15,14 @@
 
 [English](./README.md)
 [русский](./README-ru.md)
+[français](./README-fr.md)
+[español](./README-es.md)
 </div>
 <div align = "center">
 <strong> 零度锻造，比特成锋 </strong>
 </div>
 
-## Runtime Screenshot
+## 运行截图
 
 <div align = "center">
 <img src = ".docs/assert/RuntimeScreenshot.png" alt = "运行截图">

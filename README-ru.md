@@ -5,35 +5,37 @@
 </div>
 <div align = "center">
 
-# Frostnux · 霜砧
+# Frostnux · Остров
 <strong> C++ / OpenGL как встроенная среда разработки с открытым исходным кодом при запуске. </strong>
 
-<em>「霜砧」为本IDE中文名; 工程名仍使用 <code>Frostnux</code>。</em>
+<em>Русское название: <strong>Остров</strong> (официальное китайское наименование). Название репозитория остается <code>Frostnux</code>.</em>
 </div>
 
 <div align = "center">
 
 [English](./README.md)
 [中文](./README-zh.md)
+[français](./README-fr.md)
+[español](./README-es.md)
 </div>
 <div align = "center">
-<strong> 零度锻造，比特成锋 </strong>
+<strong> Нулевое кованье, бит в остроту </strong>
 </div>
 
-## Runtime Screenshot
+## Скриншот работы
 
 <div align = "center">
 <img src = ".docs/assert/RuntimeScreenshot.png" alt = "Скриншот работы">
 </div>
 <div align="center">
-<em> IDE 处于 <code>编译</code> 时的实际运行画面截图 </em>
+<em> Скриншот реального экрана работы IDE во время <code>компиляции</code> </em>
 </div>
 
-## Frostnux 是什么
-Frostnux 是一名初中生居家自研的一款小型集成开发环境, 旨在为代码开发提供另一种可能,
+## Что такое Frostnux
+Frostnux - это небольшая интегрированная среда разработки, созданная школьником дома, которая предлагает альтернативный вариант для написания кода,
 
-目前版本为 2026.9.1, 支持语言C++
+Текущая версия 2026.9.1, поддерживается язык C++
 
-## 许可证
+## Лицензия
 
-Frostnux 基于 Apache 协议发布, 详见 [`LICENSE`](./LICENSE) 文件.
+Frostnux выпускается на основе протокола Apache, Подробности см. в файле [`LICENSE`](./LICENSE).
