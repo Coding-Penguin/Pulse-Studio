@@ -29,6 +29,8 @@ namespace Frostnux {
 		void SetUnsemi_transparency(unsigned int value);
 
 		void SetWindowIcon(GLFWwindow* window) override;
+
+		void Maximize() override;
 	private:
 		void Init(const WindowProps& props);
 		void Shutdown();

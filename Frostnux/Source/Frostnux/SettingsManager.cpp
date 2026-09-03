@@ -34,6 +34,7 @@ namespace Frostnux {
 			m_Settings.WindowHeight = j.value("WindowHeight", 1000);
 			m_Settings.fileExplorerExpandedState = j["fileExplorerExpandedState"].get<std::unordered_map<std::string, bool>>();
 			m_Settings.fileExplorerScrollY = j.value("fileExplorerScrollY", 0.0f);
+			m_Settings.IsMaximize = j.value("IsMaximize", false);
 		}
 		catch (const std::exception& e)
 		{
@@ -54,6 +55,7 @@ namespace Frostnux {
 		j["WindowHeight"] = m_Settings.WindowHeight;
 		j["fileExplorerExpandedState"] = m_Settings.fileExplorerExpandedState;
 		j["fileExplorerScrollY"] = m_Settings.fileExplorerScrollY;
+		j["IsMaximize"] = m_Settings.IsMaximize;
 
 		std::ofstream file("config/config.json");
 		if (!file)
@@ -118,6 +120,12 @@ namespace Frostnux {
 	{
 		scrollY = m_Settings.fileExplorerScrollY;
 		expandedState = m_Settings.fileExplorerExpandedState;
+	}
+
+	void SettingsManager::SetMaximize(bool isMaximized)
+	{
+		m_Settings.IsMaximize = isMaximized;
+		Save();
 	}
 
 }

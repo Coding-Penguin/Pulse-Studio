@@ -15,8 +15,7 @@
 [中文](./README-zh.md)
 </div>
 <div align = "center">
-
-### Forged at zero. Bladed in bits.
+<strong> Forged at zero. Bladed in bits. </strong>
 </div>
 
 ## Runtime Screenshot
@@ -28,7 +27,10 @@
 <em> A screenshot of the IDE's actual running interface during <code>compilation</code> </em>
 </div>
 
-<!-- ## What Frostnux Is -->
+## What Frostnux Is
+Frostnux is a small integrated development environment developed by a middle school student at home, aiming to provide another possibility for code development,
+
+The current version is 2026.8.5 and supports language C++
 
 ## License
 

@@ -42,6 +42,8 @@ namespace Frostnux {
 		virtual void Close() = 0;
 		virtual bool ShouldClose() const = 0;
 
+		virtual void Maximize() = 0;
+
 		static Window* Create(const WindowProps& props = WindowProps());
 	};
 }

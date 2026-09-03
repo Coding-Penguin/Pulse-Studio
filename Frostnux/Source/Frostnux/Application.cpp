@@ -42,17 +42,32 @@ namespace Frostnux {
 		ThemeManager::SetTheme((Theme)settings.themeIndex);
 		ChannelManager::SetChannel((Channel)settings.channelIndex);
 
-		WindowProps props("Frostnux", settings.WindowWidth, settings.WindowHeight);
+		std::string WindowName = "Frostnux - " + s_Version;
+		if (ChannelManager::GetChannel() == Channel::Preview)
+		{
+			WindowName += " [Preview]";
+		}
+		float width = settings.WindowWidth, height = settings.WindowHeight;
+		if (width <= 0 || height <= 0)
+		{
+			width = 1280;
+			height = 720;
+		}
+		WindowProps props(WindowName, width, height);
 		m_MainWindow = std::unique_ptr<Window>(Window::Create(props));
 		m_MainWindow->SetEventCallback(BIND_EVENT_FN(OnEvent));
 		m_MainWindow->SetVSync(true);
+		if (SettingsManager::Get().GetSettings().IsMaximize)
+		{
+			m_MainWindow->Maximize();
+		}
 
 		Input::Init();
 
 		if (!s_FontLoaded)
 		{
 			FX_CORE_INFO("Loading font...");
-			TextRenderer::Get().LoadFont("Resources/Fonts/OpenSans-Regular.ttf", 22.0f);
+			TextRenderer::Get().LoadFont("Resources/Fonts/OpenSans-Regular.ttf", s_FontSize);
 			s_FontLoaded = true;
 			FX_CORE_INFO("Font loaded successfully.");
 		}

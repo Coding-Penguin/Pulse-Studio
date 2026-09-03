@@ -9,8 +9,6 @@
 
 namespace Frostnux {
 
-	float TextRenderer::m_FontSize = 0.0f;
-
 	TextRenderer& TextRenderer::Get()
 	{
 		static TextRenderer instance;
@@ -47,8 +45,6 @@ namespace Frostnux {
 			FX_CORE_ERROR("Failed to init font: {}", fontPath);
 			return false;
 		}
-
-		m_FontSize = fontSize;
 		float scale = stbtt_ScaleForPixelHeight(&info, 72.0f);
 
 		const unsigned int atlasW = 16384, atlasH = 16384;
@@ -91,7 +87,7 @@ namespace Frostnux {
 		}
 
 		m_Initialized = true;
-		FX_CORE_TRACE("Font loaded: {}", fontPath);
+		FX_CORE_INFO("Font loaded: {}", fontPath);
 		m_CharWidth = fontSize * 0.5f;
 		return true;
 	}
@@ -150,7 +146,7 @@ namespace Frostnux {
 		if (this == nullptr) return 0.0f;
 		if (!m_Initialized)
 		{
-			FX_CORE_ERROR("TextRenderer not initialized or no atlas");
+			FX_CORE_ERROR("TextRenderer not initialized or no atlas!");
 			return 0.0f;
 		}
 		float width = 0.0f;
@@ -163,7 +159,7 @@ namespace Frostnux {
 
 	float TextRenderer::GetTextHeight() const
 	{
-		return m_FontSize;
+		return s_FontSize;
 	}
 
 	void TextRenderer::Unload()
@@ -177,7 +173,7 @@ namespace Frostnux {
 
 	float TextRenderer::GetFontSize()
 	{
-		return m_FontSize;
+		return s_FontSize;
 	}
 
 	float TextRenderer::GetCharWidth(char c) const
@@ -185,7 +181,7 @@ namespace Frostnux {
 		if (c == '\t') return m_TabWidth * m_CharWidth;
 		auto it = m_Chars.find(c);
 		if (it != m_Chars.end()) return it->second.advance;
-		return m_FontSize * 0.5f;
+		return s_FontSize * 0.5f;
 	}
 
 }

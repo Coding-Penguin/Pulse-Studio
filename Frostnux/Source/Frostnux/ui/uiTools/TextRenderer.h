@@ -38,7 +38,6 @@ namespace Frostnux {
 		unsigned int m_TextureID = 0;
 		int m_AtlasWidth = 0, m_AtlasHeight = 0;
 		std::unordered_map<char, CharInfo> m_Chars;
-		static float m_FontSize;
 		int m_TabWidth = 4;
 		float m_CharWidth = 0.0f;
 	};

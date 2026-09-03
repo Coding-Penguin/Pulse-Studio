@@ -5,6 +5,7 @@
 namespace Frostnux {
 
 	Highlight::Highlight(const Language& mode)
+		: m_InBlockComment(false)
 	{
 		SetLanguage(mode);
 	}
@@ -64,9 +65,47 @@ namespace Frostnux {
 		bool inChar = false;
 		bool inPreproc = false;
 		bool inLineComment = false;
+		bool inBlockComment = m_InBlockComment;
+		int start = -1;
+
+		if (inBlockComment)
+		{
+			start = 0;
+		}
 
 		while (i < len)
 		{
+			// Start block comment
+			if (!inString && !inChar && !inBlockComment && i + 1 < len && line[i] == '/' && line[i + 1] == '*')
+			{
+				int start = i;
+				i += 2;
+				inBlockComment = true;
+				continue;
+			}
+
+			// End block comment
+			if (!inString && !inChar && inBlockComment && i + 1 < len && line[i] == '*' && line[i + 1] == '/')
+			{
+				int end = i + 2;
+				if (start != -1)
+				{
+					spans.push_back({ start - 2, end, HighlightColor::Comment });
+					start = -1;
+				}
+				i = end;
+				inBlockComment = false;
+				continue;
+			}
+
+			// Inside block comment
+			if (inBlockComment)
+			{
+				if (start == -1) start = i;
+				i++;
+				continue;
+			}
+
 			if (i == 0 && line[i] == '#')
 			{
 				inPreproc = true;
@@ -152,8 +191,7 @@ namespace Frostnux {
 			i++;
 		}
 
-		std::sort(spans.begin(), spans.end(),
-			[](const HighlightSpan& a, const HighlightSpan& b) { return a.start < b.start; });
+		std::sort(spans.begin(), spans.end(), [](const HighlightSpan& a, const HighlightSpan& b) { return a.start < b.start; });
 		std::vector<HighlightSpan> merged;
 		for (auto& s : spans)
 		{

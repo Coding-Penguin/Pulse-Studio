@@ -16,6 +16,7 @@ namespace Frostnux {
 		int fontSize = 20;
 		float fileExplorerScrollY = 0.0f;
 		unsigned int WindowWidth = 1720, WindowHeight = 1000;
+		bool IsMaximize = false;
 	};
 
 	class SettingsManager
@@ -33,6 +34,7 @@ namespace Frostnux {
 		void SetThemeIndex(int index);
 		void SetChannel(int index);
 		void SetFontSize(int size);
+		void SetMaximize(bool isMaximized);
 
 		void SetWindowSize(unsigned int width, unsigned int height);
 

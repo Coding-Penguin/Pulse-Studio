@@ -71,6 +71,8 @@ namespace Frostnux {
 		std::vector<std::string> m_ControlKeywords;
 		Language m_languageMode;
 
+		mutable bool m_InBlockComment = false;
+
 		void InitCppKeywords();
 		std::vector<HighlightSpan> HighlightCppLine(const std::string& line) const;
 		std::vector<HighlightSpan> HighlightGenericLine(const std::string& line) const;

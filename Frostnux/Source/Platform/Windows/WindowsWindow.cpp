@@ -401,15 +401,7 @@ namespace Frostnux {
 	{
 		int width, height, channels;
 		std::string iconPath;
-
-		if (ThemeManager::IsDarkTheme())
-		{
-			iconPath = "Resources/Images/FrostnuxStudio_White.png";
-		}
-		else
-		{
-			iconPath = "Resources/Images/FrostnuxStudio_Black.png";
-		}
+		iconPath = "Resources/Images/Frostnux.png";
 
 		unsigned char* data = stbi_load(iconPath.c_str(), &width, &height, &channels, 4);
 
@@ -434,6 +426,11 @@ namespace Frostnux {
 	bool WindowsWindow::ShouldClose() const
 	{
 		return glfwWindowShouldClose(m_Window) == GLFW_TRUE;
+	}
+
+	void WindowsWindow::Maximize()
+	{
+		glfwMaximizeWindow(m_Window);
 	}
 
 }

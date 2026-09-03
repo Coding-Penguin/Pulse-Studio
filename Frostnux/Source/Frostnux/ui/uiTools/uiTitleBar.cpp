@@ -241,9 +241,15 @@ namespace Frostnux
 				{
 					auto* window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
 					if (glfwGetWindowAttrib(window, GLFW_MAXIMIZED))
+					{
 						glfwRestoreWindow(window);
+						SettingsManager::Get().SetMaximize(false);
+					}
 					else
+					{
 						glfwMaximizeWindow(window);
+						SettingsManager::Get().SetMaximize(true);
+					}
 					return true;
 				}
 
