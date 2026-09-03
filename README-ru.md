@@ -1,12 +1,12 @@
 <div align = "center">
 
-<img alt="图标" src="./App/Resources/Images/Frostnux.png" style = "width: 20%; height: auto;">
+<img alt="значок" src="./App/Resources/Images/Frostnux.png" style = "width: 20%; height: auto;">
 
 </div>
 <div align = "center">
 
 # Frostnux · 霜砧
-<strong> 以 C++ / OpenGL 为原生运行时的开源集成开发环境. </strong>
+<strong> C++ / OpenGL как встроенная среда разработки с открытым исходным кодом при запуске. </strong>
 
 <em>「霜砧」为本IDE中文名; 工程名仍使用 <code>Frostnux</code>。</em>
 </div>
@@ -14,7 +14,7 @@
 <div align = "center">
 
 [English](./README.md)
-[русский](./README-ru.md)
+[中文](./README-zh.md)
 </div>
 <div align = "center">
 <strong> 零度锻造，比特成锋 </strong>
@@ -23,7 +23,7 @@
 ## Runtime Screenshot
 
 <div align = "center">
-<img src = ".docs/assert/RuntimeScreenshot.png" alt = "运行截图">
+<img src = ".docs/assert/RuntimeScreenshot.png" alt = "Скриншот работы">
 </div>
 <div align="center">
 <em> IDE 处于 <code>编译</code> 时的实际运行画面截图 </em>

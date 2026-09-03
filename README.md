@@ -13,6 +13,7 @@
 <div align = "center">
 
 [中文](./README-zh.md)
+[русский](./README-ru.md)
 </div>
 <div align = "center">
 <strong> Forged at zero. Bladed in bits. </strong>
@@ -30,7 +31,7 @@
 ## What Frostnux Is
 Frostnux is a small integrated development environment developed by a middle school student at home, aiming to provide another possibility for code development,
 
-The current version is 2026.8.5 and supports language C++
+The current version is 2026.9.1 and supports language C++
 
 ## License
 
