@@ -102,7 +102,7 @@ namespace Frostnux {
 		float m_RectY = 150.0f;
 		float m_RectWidth = 500.0f;
 		float m_RectHeight = 700.0f;
-	private:
+
 		std::string m_name = "uiWindow";
 		float m_Color[4] = {};
 
@@ -121,7 +121,6 @@ namespace Frostnux {
 		float m_WindowStartX = 0.0f, m_WindowStartY = 0.0f;
 		bool m_IsVisible = true;
 		bool m_CloseButtonHovered = false;
-		bool m_IsDarkTheme = true;
 
 		std::vector<uiButton*> m_Buttons;
 

@@ -35,13 +35,13 @@ namespace Frostnux {
 
 		Log::Init();
 		FX_CORE_INFO("Initilized log!");
-		FX_CORE_INFO("Frostnux is running on channel: {}, theme: {}, version: {}", ((ChannelManager::GetChannel() == Channel::Current) ? "Current" : "Preview"), ThemeManager::GetThemeName(), s_Version);
 
 		SettingsManager::Get().Load();
 
 		ThemeManager::SetTheme((Theme)settings.themeIndex);
 		ChannelManager::SetChannel((Channel)settings.channelIndex);
 
+		FX_CORE_INFO("Frostnux is running on channel: {}, theme: {}, version: {}", ((ChannelManager::GetChannel() == Channel::Current) ? "Current" : "Preview"), ThemeManager::GetThemeName(), s_Version);
 		std::string WindowName = "Frostnux - " + s_Version;
 		if (ChannelManager::GetChannel() == Channel::Preview)
 		{

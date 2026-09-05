@@ -8,9 +8,6 @@ Binaries-Intermediates/
 *.vcxproj.user
 *.vcxproj.filters
 *.sln
-*.log
-*.lnk
-TODO.txt
 Makefile
 
 # Exclude

@@ -42,50 +42,52 @@ namespace Frostnux
 			x = y = 10;
 		}
 
+		float buttonHeight = 40.0f;
+
 		// File
-		auto Filebtn = std::make_unique<uiButton>("File", x, y, 70, 35, ButtonStyles::NoBackgroundOrLine);
+		auto Filebtn = std::make_unique<uiButton>("File", x, y, 70, buttonHeight, ButtonStyles::NoBackgroundOrLine);
 		Filebtn->SetCallback([=]() { FX_INFO("Clicked \"File\""); });
 		m_Buttons.push_back(std::move(Filebtn));
 		x += 80;
 
 		// Edit
-		auto Editbtn = std::make_unique<uiButton>("Edit", x, y, 70, 35, ButtonStyles::NoBackgroundOrLine);
+		auto Editbtn = std::make_unique<uiButton>("Edit", x, y, 70, buttonHeight, ButtonStyles::NoBackgroundOrLine);
 		Editbtn->SetCallback([=]() { FX_INFO("Clicked \"Edit\""); });
 		m_Buttons.push_back(std::move(Editbtn));
 		x += 80;
 
 		// View
-		auto Viewbtn = std::make_unique<uiButton>("View", x, y, 70, 35, ButtonStyles::NoBackgroundOrLine);
+		auto Viewbtn = std::make_unique<uiButton>("View", x, y, 70, buttonHeight, ButtonStyles::NoBackgroundOrLine);
 		Viewbtn->SetCallback([=]() { FX_INFO("Clicked \"View\""); });
 		m_Buttons.push_back(std::move(Viewbtn));
 		x += 80;
 
 		// Project
-		auto Projectbtn = std::make_unique<uiButton>("Project", x, y, 90, 35, ButtonStyles::NoBackgroundOrLine);
+		auto Projectbtn = std::make_unique<uiButton>("Project", x, y, 90, buttonHeight, ButtonStyles::NoBackgroundOrLine);
 		Projectbtn->SetCallback([=]() { FX_INFO("Clicked \"Project\""); });
 		m_Buttons.push_back(std::move(Projectbtn));
 		x += 100;
 
 		// Build
-		auto Buildbtn = std::make_unique<uiButton>("Build", x, y, 75, 35, ButtonStyles::NoBackgroundOrLine);
+		auto Buildbtn = std::make_unique<uiButton>("Build", x, y, 75, buttonHeight, ButtonStyles::NoBackgroundOrLine);
 		Buildbtn->SetCallback([=]() { FX_INFO("Clicked \"Build\""); });
 		m_Buttons.push_back(std::move(Buildbtn));
 		x += 85;
 
 		// Debug
-		auto Debugbtn = std::make_unique<uiButton>("Debug", x, y, 75, 35, ButtonStyles::NoBackgroundOrLine);
+		auto Debugbtn = std::make_unique<uiButton>("Debug", x, y, 75, buttonHeight, ButtonStyles::NoBackgroundOrLine);
 		Debugbtn->SetCallback([=]() { FX_INFO("Clicked \"Debug\""); });
 		m_Buttons.push_back(std::move(Debugbtn));
 		x += 85;
 
 		// Tools
-		auto Toolsbtn = std::make_unique<uiButton>("Tools", x, y, 75, 35, ButtonStyles::NoBackgroundOrLine);
+		auto Toolsbtn = std::make_unique<uiButton>("Tools", x, y, 75, buttonHeight, ButtonStyles::NoBackgroundOrLine);
 		Toolsbtn->SetCallback([=]() { FX_INFO("Clicked \"Tools\""); });
 		m_Buttons.push_back(std::move(Toolsbtn));
 		x += 85;
 
 		// Help
-		auto Helpbtn = std::make_unique<uiButton>("Help", x, y, 70, 35, ButtonStyles::NoBackgroundOrLine);
+		auto Helpbtn = std::make_unique<uiButton>("Help", x, y, 70, buttonHeight, ButtonStyles::NoBackgroundOrLine);
 		Helpbtn->SetCallback([=]() { FX_INFO("Clicked \"Help\""); });
 		m_Buttons.push_back(std::move(Helpbtn));
 		x += 80;
@@ -97,7 +99,7 @@ namespace Frostnux
 		x += 20;
 		auto addSearchButton = [&](const std::string& text, float width)
 			{
-				auto btn = std::make_unique<uiButton>(text, x, y, width, 35, ButtonStyles::NoBackgroundOrLine);
+				auto btn = std::make_unique<uiButton>(text, x, y, width, buttonHeight, ButtonStyles::NoBackgroundOrLine);
 				btn->SetCallback([=]() { FX_INFO("Clicked \"Search\"."); });
 				m_Buttons.push_back(std::move(btn));
 			};
@@ -119,8 +121,8 @@ namespace Frostnux
 
 			glColor4f(std::min(r + 0.01f, 1.0f), std::min(g + 0.01f, 1.0f), std::min(b + 0.03f, 1.0f), 1.0f);
 			glBegin(GL_QUADS);
-			glVertex2f(0.0f, 35.0f);
-			glVertex2f(width, 35.0f);
+			glVertex2f(0.0f, 40.0f);
+			glVertex2f(width, 40.0f);
 			glVertex2f(width, 0.0f);
 			glVertex2f(0.0f, 0.0f);
 			glEnd();

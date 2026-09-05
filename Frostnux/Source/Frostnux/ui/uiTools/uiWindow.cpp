@@ -45,16 +45,6 @@ namespace Frostnux {
 		s_LeftWidth = app.GetWindow().GetWidth() * 0.2f;
 		s_RightWidth = app.GetWindow().GetWidth() * 0.2f;
 		s_BottomHeight = app.GetWindow().GetHeight() * 0.3f;
-		if (ThemeManager::IsDarkTheme())
-		{
-			FX_CORE_TRACE("Use dark ui theme.");
-			SetStyle(true); // Dark
-		}
-		else
-		{
-			FX_CORE_TRACE("Use light ui theme.");
-			SetStyle(false); // Light
-		}
 	}
 
 	uiWindow::~uiWindow()
@@ -228,7 +218,13 @@ namespace Frostnux {
 		glEnable(GL_SCISSOR_TEST);
 		glScissor(scissorX, scissorY, scissorW, scissorH);
 
-		glColor4f(m_Color[0], m_Color[1], m_Color[2], m_Color[3]);
+		auto [r, g, b] = ThemeManager::GetBGColor();
+		glColor4f(std::min(r + 0.1f, 1.0f), std::min(g + 0.1f, 1.0f), std::min(b + 0.1f, 1.0f), 0.9f);
+		m_Color[0] = std::min(r + 0.1f, 1.0f);
+		m_Color[1] = std::min(g + 0.1f, 1.0f);
+		m_Color[2] = std::min(b + 0.1f, 1.0f);
+		m_Color[3] = 0.9f;
+
 		glBegin(GL_POLYGON);
 		glVertex2f(m_RectX, m_RectY);
 		glVertex2f(m_RectX + m_RectWidth, m_RectY);
@@ -262,7 +258,7 @@ namespace Frostnux {
 		}
 
 		float crossR, crossG, crossB;
-		if (m_IsDarkTheme)
+		if (ThemeManager::IsDarkTheme())
 		{
 			crossR = 1.0f;
 			crossG = 1.0f;
@@ -588,32 +584,10 @@ namespace Frostnux {
 		m_RectHeight = height;
 	}
 
-	void uiWindow::SetStyle(bool isDark)
-	{
-		if (isDark)
-		{
-			m_Color[0] = 0.07f;
-			m_Color[1] = 0.07f;
-			m_Color[2] = 0.15f;
-			m_Color[3] = 0.7f;
-
-			m_IsDarkTheme = true;
-		}
-		else
-		{
-			m_Color[0] = 0.93f;
-			m_Color[1] = 0.93f;
-			m_Color[2] = 1.0f;
-			m_Color[3] = 0.7f;
-
-			m_IsDarkTheme = false;
-		}
-	}
-
 	void uiWindow::DrawTitle() const
 	{
 		float r = 1.0f, g = 1.0f, b = 1.0f, a = 1.0f;
-		if (!m_IsDarkTheme)
+		if (!ThemeManager::IsDarkTheme())
 		{
 			r = 0.0f;
 			g = 0.0f;

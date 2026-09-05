@@ -131,27 +131,15 @@ namespace Frostnux {
 
 	void EditorTabManager::DrawTab(int index, float x, float y, float w, float h, bool active)
 	{
-		if (ThemeManager::IsDarkTheme())
+		if (active)
 		{
-			if (active)
-			{
-				glColor4f(0.25f, 0.25f, 0.28f, 1.0f);
-			}
-			else
-			{
-				glColor4f(0.18f, 0.18f, 0.20f, 0.7f);
-			}
+			auto [r, g, b] = ThemeManager::GetBGColor();
+			glColor4f(std::min(r + 0.1f, 1.0f), std::min(g + 0.1f, 1.0f), std::min(b + 0.1f, 1.0f), 0.9f);
 		}
 		else
 		{
-			if (active)
-			{
-				glColor4f(0.9f, 0.9f, 0.93f, 1.0f);
-			}
-			else
-			{
-				glColor4f(0.8f, 0.8f, 0.83f, 0.7f);
-			}
+			auto [r, g, b] = ThemeManager::GetBGColor();
+			glColor4f(std::min(r + 0.1f, 1.0f), std::min(g + 0.1f, 1.0f), std::min(b + 0.1f, 1.0f), 0.9f);
 		}
 
 		glBegin(GL_QUADS);

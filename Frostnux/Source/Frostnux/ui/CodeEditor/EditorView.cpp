@@ -81,10 +81,8 @@ namespace Frostnux
 			m_LineHeight = 20.0f;
 		m_buffer = buffer;
 
-		if (ThemeManager::IsDarkTheme())
-			glColor4f(0.1f, 0.1f, 0.15f, 1.0f);
-		else
-			glColor4f(0.9f, 0.9f, 0.95f, 1.0f);
+		auto [r, g, b] = ThemeManager::GetBGColor();
+		glColor4f(std::min(r + 0.1f, 1.0f), std::min(g + 0.1f, 1.0f), std::min(b + 0.1f, 1.0f), 0.9f);
 
 		glBegin(GL_POLYGON);
 		glVertex2f(m_X, m_Y);
@@ -552,9 +550,9 @@ namespace Frostnux
 			m_ScrollYOffset = cursorY + m_LineHeight - m_H;
 		}
 
-		// Horizontal scroll...
-
 		ClampScroll();
+
+		// Horizontal scroll...
 	}
 
 	float EditorView::GetScrollbarThumbHeight() const

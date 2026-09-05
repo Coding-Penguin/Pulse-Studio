@@ -32,7 +32,7 @@ namespace Frostnux
 			case Theme::Cool_Breeze:
 				return { 0.8f, 0.9f, 0.95f };
 			case Theme::Cool_Slate:
-				return { 0.110f, 0.208f, 0.306f };
+				return { 0.1f, 0.13f, 0.17f };
 			case Theme::Icy_Mint:
 				return { 0.8f, 0.9f, 0.85f };
 			case Theme::Moonlight:
