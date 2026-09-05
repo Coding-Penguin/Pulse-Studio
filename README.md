@@ -24,7 +24,7 @@
 ## Runtime Screenshot
 
 <div align = "center">
-<img src = "" alt = "Runtime Screenshot" style = "width: 30%; height: auto;">
+<img src = ".docs/assert/RuntimeScreenshot.png" alt = "Runtime Screenshot" style = "width: 30%; height: auto;">
 </div>
 <div align="center">
 <em> A screenshot of the IDE's actual running interface during <code>compilation</code> </em>
