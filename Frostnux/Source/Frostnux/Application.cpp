@@ -40,8 +40,14 @@ namespace Frostnux {
 
 		ThemeManager::SetTheme((Theme)settings.themeIndex);
 		ChannelManager::SetChannel((Channel)settings.channelIndex);
+		LanguageManager::SetLanguage((LanguageType)settings.languageIndex);
 
-		FX_CORE_INFO("Frostnux is running on channel: {}, theme: {}, version: {}", ((ChannelManager::GetChannel() == Channel::Current) ? "Current" : "Preview"), ThemeManager::GetThemeName(), s_Version);
+		FX_CORE_INFO("Frostnux is running on channel: {}, theme: {}, language: {}, version: {}",
+			((ChannelManager::GetChannel() == Channel::Current) ? "Current" : "Preview"),
+			ThemeManager::GetThemeName(),
+			LanguageManager::GetLanguageName(),
+			s_Version);
+
 		std::string WindowName = "Frostnux - " + s_Version;
 		if (ChannelManager::GetChannel() == Channel::Preview)
 		{

@@ -25,6 +25,7 @@ namespace Frostnux {
 		{
 			nlohmann::json j;
 			file >> j;
+			m_Settings.languageIndex = j.value("languageIndex", 0);
 			m_Settings.themeIndex = j.value("themeIndex", 3);
 			m_Settings.channelIndex = j.value("channelIndex", 1);
 			m_Settings.fontSize = j.value("fontSize", 20);

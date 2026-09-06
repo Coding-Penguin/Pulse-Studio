@@ -32,6 +32,7 @@
 #include "Frostnux/Log.h"
 #include "Frostnux/Theme.h"
 #include "Frostnux/Channel.h"
+#include "Frostnux/Language.h"
 
 #include "Frostnux/KeyCodes.h"
 #include "Frostnux/MouseButtonCodes.h"

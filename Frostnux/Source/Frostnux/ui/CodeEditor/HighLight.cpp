@@ -4,20 +4,20 @@
 
 namespace Frostnux {
 
-	Highlight::Highlight(const Language& mode)
+	Highlight::Highlight(const CodeLanguage& mode)
 		: m_InBlockComment(false)
 	{
 		SetLanguage(mode);
 	}
 
-	void Highlight::SetLanguage(const Language& mode)
+	void Highlight::SetLanguage(const CodeLanguage& mode)
 	{
 		m_languageMode = mode;
-		if (m_languageMode == Language::CPP)
+		if (m_languageMode == CodeLanguage::CPP)
 		{
 			InitCppKeywords();
 		}
-		// In the future, it will support more languages like Python, Java, etc.
+		// In the future, it will support more languages like Python, Rust, Java, C#, etc.
 		// For now, only C++ is implemented.
 	}
 
@@ -46,7 +46,7 @@ namespace Frostnux {
 
 	std::vector<HighlightSpan> Highlight::HighlightLine(const std::string& line) const
 	{
-		if (m_languageMode == Language::CPP)
+		if (m_languageMode == CodeLanguage::CPP)
 		{
 			return HighlightCppLine(line);
 		}

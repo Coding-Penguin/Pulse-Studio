@@ -25,7 +25,7 @@ namespace Frostnux {
 		HighlightColor color;
 	};
 
-	enum class Language
+	enum class CodeLanguage
 	{
 		CPP,
 		Python,
@@ -41,8 +41,8 @@ namespace Frostnux {
 	class Highlight
 	{
 	public:
-		Highlight(const Language& mode = Language::CPP);
-		void SetLanguage(const Language& mode);
+		Highlight(const CodeLanguage& mode = CodeLanguage::CPP);
+		void SetLanguage(const CodeLanguage& mode);
 		std::vector<HighlightSpan> HighlightLine(const std::string& line) const;
 
 		glm::vec3 GetColorForHighlight(HighlightColor color) const
@@ -69,7 +69,7 @@ namespace Frostnux {
 	private:
 		std::vector<std::string> m_Keywords;
 		std::vector<std::string> m_ControlKeywords;
-		Language m_languageMode;
+		CodeLanguage m_languageMode;
 
 		mutable bool m_InBlockComment = false;
 

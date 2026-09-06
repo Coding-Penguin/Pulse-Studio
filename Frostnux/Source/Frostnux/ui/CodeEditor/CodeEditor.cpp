@@ -17,7 +17,7 @@ namespace Frostnux {
 	{
 		m_Buffer.LoadFromString("");
 		m_Cursor.MoveTo(0, 0);
-		m_Highlighter.SetLanguage(Language::Text);
+		m_Highlighter.SetLanguage(CodeLanguage::Text);
 
 		m_View = &EditorView::Get();
 
@@ -182,31 +182,31 @@ namespace Frostnux {
 		std::string extension = GetFileExtension(path);
 		if (extension == "cpp" || extension == "c" || extension == "h")
 		{
-			m_Highlighter.SetLanguage(Language::CPP);
+			m_Highlighter.SetLanguage(CodeLanguage::CPP);
 		}
 		else if (extension == "py")
 		{
-			m_Highlighter.SetLanguage(Language::Python);
+			m_Highlighter.SetLanguage(CodeLanguage::Python);
 		}
 		else if (extension == "java")
 		{
-			m_Highlighter.SetLanguage(Language::Java);
+			m_Highlighter.SetLanguage(CodeLanguage::Java);
 		}
 		else if (extension == "cs")
 		{
-			m_Highlighter.SetLanguage(Language::CSharp);
+			m_Highlighter.SetLanguage(CodeLanguage::CSharp);
 		}
 		else if (extension == "md")
 		{
-			m_Highlighter.SetLanguage(Language::Markdown);
+			m_Highlighter.SetLanguage(CodeLanguage::Markdown);
 		}
 		else if (extension == "json")
 		{
-			m_Highlighter.SetLanguage(Language::JSON);
+			m_Highlighter.SetLanguage(CodeLanguage::JSON);
 		}
 		else if (extension == "lua")
 		{
-			m_Highlighter.SetLanguage(Language::Lua);
+			m_Highlighter.SetLanguage(CodeLanguage::Lua);
 		}
 
 		FX_CORE_INFO("Loaded file: {}", path);
@@ -230,7 +230,7 @@ namespace Frostnux {
 		return m_Buffer.GetString();
 	}
 
-	void CodeEditor::SetSyntaxMode(const Language& mode)
+	void CodeEditor::SetSyntaxMode(const CodeLanguage& mode)
 	{
 		m_Highlighter.SetLanguage(mode);
 	}

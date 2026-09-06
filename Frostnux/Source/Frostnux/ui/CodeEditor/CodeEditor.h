@@ -26,7 +26,7 @@ namespace Frostnux {
 		void SaveFile(const std::string& path);
 		std::string GetText() const;
 
-		void SetSyntaxMode(const Language& mode);
+		void SetSyntaxMode(const CodeLanguage& mode);
 
 		void Copy();
 		void Cut();

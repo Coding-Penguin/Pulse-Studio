@@ -11,6 +11,7 @@ namespace Frostnux {
 		std::vector<std::string> openFiles;
 		std::unordered_map<std::string, bool> fileExplorerExpandedState;
 
+		int languageIndex = 0;
 		int themeIndex = 3;
 		int channelIndex = 1;
 		int fontSize = 20;
